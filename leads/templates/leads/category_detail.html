@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{category.name}}</h1>
+<p>These are the leads under this category.</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for lead in category.leads.all %}
+      <tr>
+        <td><a href="{% url 'lead_detail' lead.pk %}">{{lead.first_name}}</a></td>
+        <td>{{lead.last_name}}</td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+{% endblock content %}
