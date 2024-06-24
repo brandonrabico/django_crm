@@ -2,4 +2,4 @@ python manage.py collectstatic --no-input
 
 python manage.py migrate
 
-gunicorn --worker-tmp-dir /dev/shm djangocrm.wsgi
+web: gunicorn --worker-tmp-dir /dev/shm djangocrm.wsgi
