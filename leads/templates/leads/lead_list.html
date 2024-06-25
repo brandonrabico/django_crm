@@ -38,18 +38,32 @@
     {% if unassigned_leads.exists %}
     <hr>
     <h1>unassigned leads</h1>
-      {% for lead in unassigned_leads %}
-      <table>
-        <tbody>
+    
+      <table class="table">
+        <thead>
           <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Agent</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for lead in unassigned_leads %}
+          <tr>
+            <td>{{lead.id}}</td>
             <td>{{lead.first_name}}</td>
+            <td>{{lead.last_name}}</td>
+            <td>{{lead.age}}</td>
             <td><a href="{% url 'assign_agent' lead.id %}">Assign An Agent</a></td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
         
         
-      {% endfor %}
+      
     {% endif %}
   
 
